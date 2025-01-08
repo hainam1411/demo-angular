@@ -2,6 +2,11 @@
   <h1 [ngStyle]="{'color': isActive ?
      'linear-gradient(#ee4d2d, #ff7337);' : 'white'}">
     Shopping cart</h1>
-  <app-book-item [books]="books" (dataEvent)="handleDelete($event)"/>
+  <button (click)="handleChangeVisible()">Ẩn giỏ hàng</button>
+  <div *ngIf="isVisible" >
+
+    <app-book-item [books]="books" (dataEvent)="handleDelete($event)"/>
+  </div>
+
 
 </div>

@@ -40,5 +40,8 @@ ngOnChanges(changes: SimpleChanges) : void {
   console.log(changes['books'].previousValue);
 }
 
+ngOnDestroy(): void {
+  console.log('component removed!')
+}
 
 }
