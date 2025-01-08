@@ -1,0 +1,60 @@
+<div class="group-cart">
+
+  <button (click)="showBooks = !showBooks">
+    {{ showBooks ? 'Ẩn sách' : 'Hiển thị sách' }}
+  </button>
+  <div *ngIf="books.length > 0 && showBooks; else noBooks">
+    <table class="cart-table">
+      <thead class="header-cart">
+      <tr>
+        <th>Ảnh</th>
+        <th>Tên</th>
+        <th>Tác giả</th>
+        <th>Giá</th>
+        <th>Thao tác</th>
+      </tr>
+      </thead>
+      <tbody  class="row-cart">
+      <tr *ngFor="let book of books" appHoverEffect>
+        <a [routerLink]="['/detail', book.id]">
+          <td class="col-1">
+            <img [src]="book.image" alt="Book image">
+          </td>
+        </a>
+
+        <td class="col-2">{{ book.title | uppercase }}</td>
+        <td class="col-3">{{ book.author }}</td>
+        <td class="col-4">{{ book.price | currencyPipe }}</td>
+        <td class="col-5 action">
+          <div class="btn-main">
+            <button (click)="handleDelete(book.id)"  alt="delete" class="action-btn del-btn">
+              <i class="fa-regular fa-trash-can fa-2xl"></i>
+            </button>
+            <button alt="edit" class="action-btn edit-btn">
+              <i class="fa-regular fa-pen-to-square fa-2xl"></i>
+            </button>
+          </div>
+
+
+        </td>
+      </tr>
+      </tbody>
+
+    </table>
+    <div class="total">
+      <h3>Tổng tiền: {{(totalPrice) | currencyPipe}} </h3>
+      <button  class=" btn-buy">Thanh toán</button>
+    </div>
+
+
+  </div>
+
+  <ng-template #noBooks>
+    <div class="no-books">
+      <h2>Giỏ hàng của bạn đang trống</h2>
+      <button>Thêm sách vào giỏ hàng</button>
+    </div>
+
+  </ng-template>
+
+</div>

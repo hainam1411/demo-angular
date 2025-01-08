@@ -1,1 +1,30 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.main {
+  font-family: Arial, sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  background-color: #f9f9f9;
+}
+
+h1 {
+  padding: 2rem 0;
+  margin: 0;
+  color: #ff7337;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.btn-main {
+  width: 100%;
+  display: flex;
+  flex-shrink: 0;
+  justify-content: center;
+  gap: 40px;
+}
+
 /* You can add global styles to this file, and also import other style files */

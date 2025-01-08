@@ -1,0 +1,33 @@
+.group-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+  box-shadow: rgb(0, 0, 0, 0.15) 1px 1px 10px 1px;
+  background-image: linear-gradient(#ee4d2d, #ff7337);
+}
+
+.group-header .group-navigation {
+  display: flex;
+  column-gap: 2rem;
+
+}
+.header-logo svg {
+  width: 120px;
+  fill: white;
+}
+
+.group-navigation .btn-navigation {
+
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-navigation {
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  color: white;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
