@@ -3,6 +3,7 @@ import {NgIf, NgStyle} from '@angular/common';
 import {BookItem} from '../shared/type/bookItem';
 import {BookItemComponent} from '../shared/product-item/book-item.component';
 import {HttpClient} from '@angular/common/http';
+import {BookService} from '../../service/BookService';
 
 @Component({
   selector: 'app-cart',
@@ -18,15 +19,20 @@ import {HttpClient} from '@angular/common/http';
 })
 export class CartComponent {
 
-  constructor(private http: HttpClient) {
+  constructor(private bookService: BookService) {
     console.log('test constructor');
   }
 
   ngOnInit(): void {
     // console.log('test ngOnInit');
-    this.http.get<any>('https://677df5a294bde1c12529dcb9.mockapi.io/api/books/BooksAPI')
+    this.bookService.getBooks()
       .subscribe(Books => {
-       this.books = Books;
+       this.books = Books.map((book: any) => {
+         return {
+           ...book,
+           image: 'assets/images/book1.jpg'
+         }
+        });
       });
   }
 
